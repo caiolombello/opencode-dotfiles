@@ -1,0 +1,9 @@
+{
+  "dependencies": {
+    "@opencode-ai/plugin": "1.14.41",
+    "@tarquinen/opencode-dcp": "^2.1.6",
+    "@zhafron/opencode-kiro-auth": "^1.6.1",
+    "opencode-websearch-cited": "^1.2.0",
+    "opencode-worktree": "^0.4.0"
+  }
+}

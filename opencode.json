@@ -1,0 +1,64 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "plugin": [
+    "file:///home/caio/.config/opencode/plugins/rtk.ts",
+    "file:///home/caio/.config/opencode/kiro-plugin-wrapper.mjs",
+    "opencode-notify"
+  ],
+  "permission": {
+    "external_directory": {
+      "*": "ask",
+      "/home/caio/Documents/Personal/skills/**": "allow",
+      "/home/caio/.config/opencode/**": "allow",
+      "/tmp/**": "allow",
+      "/tmp/opencode/**": "allow",
+      "/run/user/*/opencode-env.*": "allow",
+      "~/.local/bin/rtk": "allow",
+      "/home/caio/.local/bin/rtk": "allow"
+    }
+  },
+  "mcp": {
+    "context7": {
+      "type": "remote",
+      "url": "https://mcp.context7.com/mcp",
+      "headers": {
+        "CONTEXT7_API_KEY": "{env:CONTEXT7_API_KEY}"
+      },
+      "enabled": true
+    },
+    "grafana-opsteam": {
+      "type": "local",
+      "command": ["uvx", "mcp-grafana", "--disable-write"],
+      "environment": {
+        "GRAFANA_URL": "https://grafana.ops.team",
+        "GRAFANA_SERVICE_ACCOUNT_TOKEN": "{env:GRAFANA_OPSTEAM_TOKEN}"
+      },
+      "enabled": true
+    },
+    "grafana-anagaming": {
+      "type": "local",
+      "command": ["uvx", "mcp-grafana", "--disable-write"],
+      "environment": {
+        "GRAFANA_URL": "https://observability.platform.anagaming.net",
+        "GRAFANA_SERVICE_ACCOUNT_TOKEN": "{env:GRAFANA_ANAGAMING_TOKEN}"
+      },
+      "enabled": true
+    },
+    "kagi": {
+      "type": "local",
+      "command": ["uvx", "kagimcp"],
+      "environment": {
+        "KAGI_API_KEY": "{env:KAGI_API_KEY}"
+      },
+      "enabled": true
+    },
+    "atlassian": {
+      "type": "remote",
+      "url": "https://mcp.atlassian.com/v1/mcp",
+      "headers": {
+        "Authorization": "{env:ATLASSIAN_MCP_AUTH}"
+      },
+      "enabled": true
+    }
+  }
+}

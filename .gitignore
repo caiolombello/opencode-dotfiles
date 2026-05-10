@@ -1,0 +1,25 @@
+# Dependencies
+node_modules/
+*.lockb
+
+# Build outputs
+*.js
+*.js.map
+
+# OpenCode runtime files
+*.db
+*.db-shm
+*.db-wal
+opencode.env
+cache/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
