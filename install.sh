@@ -38,8 +38,11 @@ for file in opencode.json package.json; do
 done
 
 # 4. Install plugin dependencies if bun is available
+# We install in BOTH the repo and the config dir so symlinked plugins can resolve modules.
 if command -v bun &>/dev/null && [[ -f "${SCRIPT_DIR}/package.json" ]]; then
-  echo "[install] Installing plugin dependencies with bun..."
+  echo "[install] Installing plugin dependencies in repo..."
+  (cd "${SCRIPT_DIR}" && bun install)
+  echo "[install] Installing plugin dependencies in config dir..."
   (cd "${CONFIG_DIR}" && bun install)
 fi
 
